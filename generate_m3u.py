@@ -11,72 +11,77 @@ API_URL = f"{BASE_URL}/player_api.php"
 def get_m3u_header():
     return '#EXTM3U\n'
 
-def format_live_entry(stream):
+def fetch_categories(action):
+    url = f"{API_URL}?username={USERNAME}&password={PASSWORD}&action={action}"
+    print(f"Fetching categories: {action}...")
+    try:
+        response = requests.get(url, timeout=30)
+        response.raise_for_status()
+        data = response.json()
+        if isinstance(data, list):
+            # Create a dictionary mapping category_id to category_name
+            cat_map = {item.get('category_id'): item.get('category_name') for item in data}
+            print(f"Loaded {len(cat_map)} categories for {action}")
+            return cat_map
+    except Exception as e:
+        print(f"Failed to fetch categories {action}: {e}")
+    return {}
+
+def format_live_entry(stream, cat_map):
     # Live stream format
-    # #EXTINF:-1 tvg-id="" tvg-name="Name" tvg-logo="Icon", Name
-    # URL
     try:
         name = stream.get('name', 'Unknown')
         stream_id = stream.get('stream_id', '')
         icon = stream.get('stream_icon', '')
         epg_id = stream.get('epg_channel_id', '')
+        cat_id = stream.get('category_id', '')
+        group_title = cat_map.get(cat_id, 'Uncategorized')
         
         # Calculate URL
         url = f"{BASE_URL}/{USERNAME}/{PASSWORD}/{stream_id}"
         
-        entry = f'#EXTINF:-1 tvg-id="{epg_id}" tvg-name="{name}" tvg-logo="{icon}",{name}\n{url}\n'
+        entry = f'#EXTINF:-1 tvg-id="{epg_id}" tvg-name="{name}" tvg-logo="{icon}" group-title="{group_title}",{name}\n{url}\n'
         return entry
     except Exception:
         return ""
 
-def format_vod_entry(stream):
+def format_vod_entry(stream, cat_map):
     # Movie format
-    # #EXTINF:-1 tvg-id="" tvg-name="Name" tvg-logo="Icon", Name
-    # URL
     try:
         name = stream.get('name', 'Unknown')
         stream_id = stream.get('stream_id', '')
         icon = stream.get('stream_icon', '')
         extension = stream.get('container_extension', 'mp4')
+        cat_id = stream.get('category_id', '')
+        group_title = cat_map.get(cat_id, 'Uncategorized')
         
         # Calculate URL for VOD
         url = f"{BASE_URL}/movie/{USERNAME}/{PASSWORD}/{stream_id}.{extension}"
         
-        entry = f'#EXTINF:-1 tvg-name="{name}" tvg-logo="{icon}",{name}\n{url}\n'
+        entry = f'#EXTINF:-1 tvg-name="{name}" tvg-logo="{icon}" group-title="{group_title}",{name}\n{url}\n'
         return entry
     except Exception:
         return ""
 
-def format_series_entry(series):
-    # Series format (Just listing the show as a "channel" since we can't fetch all episodes efficiently)
-    # Using a placeholder URL or a direct query URL if supported, but typically series need drill-down.
-    # We will list them so they appear in the playlist, but they might not be directly playable depending on the player.
-    # Some players treat series in M3U as VOD.
+def format_series_entry(series, cat_map):
+    # Series format
     try:
-        name = stream_id = series.get('name', 'Unknown')
+        name = series.get('name', 'Unknown')
         series_id = series.get('series_id', '')
         icon = series.get('cover', '')
+        cat_id = series.get('category_id', '')
+        group_title = cat_map.get(cat_id, 'Uncategorized')
         
-        # There isn't a single direct URL for a "series". 
-        # Typically series are handled via XTREAM codes API directly. 
-        # For M3U, we can't easily represent a whole series as one link.
-        # However, to satisfy the request, we will create an entry that points to a non-existent file 
-        # or just the series info to show it exists.
-        # A common workaround for "Series to M3U" scripts is to fetch ALL episodes. 
-        # Since we are skipping that for performance, we will output a warning entry or just the metadata.
+        url = f"{BASE_URL}/series/{USERNAME}/{PASSWORD}/{series_id}"
         
-        # NOTE: Without fetching episodes, we can't give a playable link. 
-        # We will point to a dummy URL that might show the cover art if the player supports it.
-        url = f"{BASE_URL}/series/{USERNAME}/{PASSWORD}/{series_id}" # This is likely not a real stream URL
-        
-        entry = f'#EXTINF:-1 tvg-name="{name}" tvg-logo="{icon}",{name} (Series - Catalog Only)\n{url}\n'
+        entry = f'#EXTINF:-1 tvg-name="{name}" tvg-logo="{icon}" group-title="{group_title}",{name} (Series - Catalog Only)\n{url}\n'
         return entry
     except Exception:
         return ""
 
-def fetch_and_save(action, filename, mode):
+def fetch_and_save(action, filename, mode, cat_map):
     url = f"{API_URL}?username={USERNAME}&password={PASSWORD}&action={action}"
-    print(f"Fetching {action}...")
+    print(f"Fetching content {action}...")
     
     try:
         response = requests.get(url, timeout=60, stream=True)
@@ -95,11 +100,11 @@ def fetch_and_save(action, filename, mode):
             for item in data:
                 entry = ""
                 if mode == "live":
-                    entry = format_live_entry(item)
+                    entry = format_live_entry(item, cat_map)
                 elif mode == "vod":
-                    entry = format_vod_entry(item)
+                    entry = format_vod_entry(item, cat_map)
                 elif mode == "series":
-                    entry = format_series_entry(item)
+                    entry = format_series_entry(item, cat_map)
                 
                 if entry:
                     f.write(entry)
@@ -110,14 +115,17 @@ def fetch_and_save(action, filename, mode):
         print(f"Failed to fetch or save {action}: {e}")
 
 def main():
-    # Generate Live M3U
-    fetch_and_save("get_live_streams", "starshare_live.m3u", "live")
+    # 1. LIVE TV
+    live_cats = fetch_categories("get_live_categories")
+    fetch_and_save("get_live_streams", "starshare_live.m3u", "live", live_cats)
     
-    # Generate Movies M3U
-    fetch_and_save("get_vod_streams", "starshare_movies.m3u", "vod")
+    # 2. MOVIES
+    vod_cats = fetch_categories("get_vod_categories")
+    fetch_and_save("get_vod_streams", "starshare_movies.m3u", "vod", vod_cats)
     
-    # Generate Series M3U
-    fetch_and_save("get_series", "starshare_series.m3u", "series")
+    # 3. SERIES
+    series_cats = fetch_categories("get_series_categories")
+    fetch_and_save("get_series", "starshare_series.m3u", "series", series_cats)
 
 if __name__ == "__main__":
     main()
