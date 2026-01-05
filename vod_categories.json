@@ -1,0 +1,747 @@
+[
+  {
+    "category_id": "240",
+    "category_name": "OSCAR WINNING MOVIES",
+    "parent_id": 0
+  },
+  {
+    "category_id": "412",
+    "category_name": "AWARDS SHOW",
+    "parent_id": 0
+  },
+  {
+    "category_id": "122",
+    "category_name": "ENGLISH (4K)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "597",
+    "category_name": "ENGLISH FHD (2025)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "525",
+    "category_name": "ENGLISH FHD (2024)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "363",
+    "category_name": "ENGLISH FHD (2023)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "253",
+    "category_name": "ENGLISH FHD (2022)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "128",
+    "category_name": "ENGLISH FHD (2021)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "62",
+    "category_name": "ENGLISH FHD (2020)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "260",
+    "category_name": "ENGLISH (2019)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "598",
+    "category_name": "ENGLISH (2025) (CAM)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "526",
+    "category_name": "ENGLISH (2024) (CAM)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "423",
+    "category_name": "ENGLISH 1999-2020",
+    "parent_id": 0
+  },
+  {
+    "category_id": "251",
+    "category_name": "ENGLISH COMEDY",
+    "parent_id": 0
+  },
+  {
+    "category_id": "34",
+    "category_name": "BLOCKBUSTER ",
+    "parent_id": 0
+  },
+  {
+    "category_id": "179",
+    "category_name": "(MULTI LANGUAGE) ",
+    "parent_id": 0
+  },
+  {
+    "category_id": "26",
+    "category_name": "ENGLISH HINDI DUBBED",
+    "parent_id": 0
+  },
+  {
+    "category_id": "623",
+    "category_name": "ENGLISH HINDI DUBBED (CAM)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "168",
+    "category_name": "NETFLIX MOVIES HINDI",
+    "parent_id": 0
+  },
+  {
+    "category_id": "169",
+    "category_name": "NETFLIX MOVIES ENGLISH",
+    "parent_id": 0
+  },
+  {
+    "category_id": "147",
+    "category_name": "Marvel Movies Collection",
+    "parent_id": 0
+  },
+  {
+    "category_id": "233",
+    "category_name": "Dubbed Multi Language",
+    "parent_id": 0
+  },
+  {
+    "category_id": "262",
+    "category_name": "Romantic Movies",
+    "parent_id": 0
+  },
+  {
+    "category_id": "120",
+    "category_name": "INDIAN (4K)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "599",
+    "category_name": " INDIAN FHD (2025)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "527",
+    "category_name": "INDIAN FHD (2024)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "364",
+    "category_name": "INDIAN FHD (2023)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "258",
+    "category_name": "INDIAN FHD (2022)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "125",
+    "category_name": "INDIAN FHD (2021)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "61",
+    "category_name": "INDIAN FHD (2020)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "33",
+    "category_name": "INDIAN",
+    "parent_id": 0
+  },
+  {
+    "category_id": "600",
+    "category_name": "INDIAN (2025) (CAM)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "528",
+    "category_name": "INDIAN (2024) (CAM)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "619",
+    "category_name": "INDIAN (CAM)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "151",
+    "category_name": "Hindi  Old Movies",
+    "parent_id": 0
+  },
+  {
+    "category_id": "601",
+    "category_name": "PUNJABI (2025) ",
+    "parent_id": 0
+  },
+  {
+    "category_id": "529",
+    "category_name": "PUNJABI (2024)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "409",
+    "category_name": "PUNJABI (2023)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "351",
+    "category_name": "PUNJABI (2022)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "27",
+    "category_name": "PUNJABI",
+    "parent_id": 0
+  },
+  {
+    "category_id": "615",
+    "category_name": "PUNJABI (2025) (CAM)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "624",
+    "category_name": "PUNJABI (2024) (CAM)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "434",
+    "category_name": "PAKISTAN (4K)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "37",
+    "category_name": "PAKISTAN",
+    "parent_id": 0
+  },
+  {
+    "category_id": "198",
+    "category_name": "PAKISTAN STAGE DRAMA",
+    "parent_id": 0
+  },
+  {
+    "category_id": "150",
+    "category_name": "Pakistani Telefilms",
+    "parent_id": 0
+  },
+  {
+    "category_id": "421",
+    "category_name": "CRICKET",
+    "parent_id": 0
+  },
+  {
+    "category_id": "69",
+    "category_name": "KIDS",
+    "parent_id": 0
+  },
+  {
+    "category_id": "621",
+    "category_name": "KIDS (CAM)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "148",
+    "category_name": "Horror Movies",
+    "parent_id": 0
+  },
+  {
+    "category_id": "257",
+    "category_name": "Documentaries",
+    "parent_id": 0
+  },
+  {
+    "category_id": "362",
+    "category_name": "FIFA WORLD CUP QATAR REPLAY",
+    "parent_id": 0
+  },
+  {
+    "category_id": "252",
+    "category_name": "Bollywood Comedy",
+    "parent_id": 0
+  },
+  {
+    "category_id": "246",
+    "category_name": "BOLLYWOOD BEUTIES",
+    "parent_id": 0
+  },
+  {
+    "category_id": "172",
+    "category_name": "RAJESH KHANNA COLLECTION",
+    "parent_id": 0
+  },
+  {
+    "category_id": "193",
+    "category_name": "DILIP KUMAR COLLECTION",
+    "parent_id": 0
+  },
+  {
+    "category_id": "187",
+    "category_name": "SALMAN KHAN COLLECTION",
+    "parent_id": 0
+  },
+  {
+    "category_id": "186",
+    "category_name": "SHAHRUKH KHAN COLLECTION",
+    "parent_id": 0
+  },
+  {
+    "category_id": "189",
+    "category_name": "AAMIR KHAN COLLECTION",
+    "parent_id": 0
+  },
+  {
+    "category_id": "195",
+    "category_name": "AMITABH BACHCHAN COLLECTION",
+    "parent_id": 0
+  },
+  {
+    "category_id": "244",
+    "category_name": "Raj Kapoor Collection",
+    "parent_id": 0
+  },
+  {
+    "category_id": "93",
+    "category_name": "SOUTH INDIAN HINDI DUBBED",
+    "parent_id": 0
+  },
+  {
+    "category_id": "618",
+    "category_name": "SOUTH INDIAN HINDI DUBBED (CAM)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "602",
+    "category_name": "TAMIL (2025)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "530",
+    "category_name": "TAMIL (2024)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "365",
+    "category_name": "TAMIL (2023)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "322",
+    "category_name": "TAMIL (2022)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "89",
+    "category_name": "TAMIL",
+    "parent_id": 0
+  },
+  {
+    "category_id": "603",
+    "category_name": "TAMIL (2025) (CAM)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "531",
+    "category_name": "TAMIL (2024) (CAM)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "604",
+    "category_name": "MALAYALAM (2025)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "532",
+    "category_name": "MALAYALAM (2024)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "366",
+    "category_name": "MALAYALAM (2023)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "323",
+    "category_name": "MALAYALAM (2022)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "91",
+    "category_name": "MALAYALAM",
+    "parent_id": 0
+  },
+  {
+    "category_id": "605",
+    "category_name": "MALAYALAM (2025) (CAM)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "533",
+    "category_name": "MALAYALAM (2024) (CAM)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "606",
+    "category_name": "TELUGU (2025) ",
+    "parent_id": 0
+  },
+  {
+    "category_id": "534",
+    "category_name": "TELUGU (2024)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "367",
+    "category_name": "TELUGU (2023)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "324",
+    "category_name": "TELUGU (2022)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "92",
+    "category_name": "TELUGU",
+    "parent_id": 0
+  },
+  {
+    "category_id": "607",
+    "category_name": "TELUGU (2025) (CAM)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "535",
+    "category_name": "TELUGU (2024) (CAM)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "608",
+    "category_name": "KANNADA (2025)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "536",
+    "category_name": "KANNADA (2024)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "166",
+    "category_name": "KANNADA",
+    "parent_id": 0
+  },
+  {
+    "category_id": "617",
+    "category_name": "KANNADA (2025) (CAM)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "622",
+    "category_name": "KANNADA (2024) (CAM)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "611",
+    "category_name": "MARATHI (2025)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "539",
+    "category_name": "MARATHI (2024)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "764",
+    "category_name": "MARATHI (2026) (CAM)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "765",
+    "category_name": "(TURKISH) (2026)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "763",
+    "category_name": "Kannada (2026) (CAM)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "628",
+    "category_name": "MARATHI (CAM)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "629",
+    "category_name": "BANGLA (CAM)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "632",
+    "category_name": "PAKISTAN (CAM)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "757",
+    "category_name": "INDIAN (2026) (CAM)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "768",
+    "category_name": "Tamil (2026)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "760",
+    "category_name": "TELUGU (2026) (CAM)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "762",
+    "category_name": "Gujrati (2026) (CAM)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "627",
+    "category_name": "Pakistani Telefilms (CAM)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "127",
+    "category_name": "MARATHI",
+    "parent_id": 0
+  },
+  {
+    "category_id": "616",
+    "category_name": "MARATHI (2025) (CAM)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "625",
+    "category_name": "MARATHI (2024) (CAM)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "612",
+    "category_name": "GUJARATI (2025)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "155",
+    "category_name": "Gujrati Movies",
+    "parent_id": 0
+  },
+  {
+    "category_id": "613",
+    "category_name": "GUJARATI (2025) (CAM)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "626",
+    "category_name": "Gujrati Movies (CAM)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "610",
+    "category_name": "BANGLA (2025)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "538",
+    "category_name": "BANGLA (2024)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "100",
+    "category_name": "BANGLA",
+    "parent_id": 0
+  },
+  {
+    "category_id": "614",
+    "category_name": "BANGLA (2025) (CAM)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "620",
+    "category_name": "BANGLA (2024) (CAM)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "519",
+    "category_name": "MOVIES WITH SUBTITLES",
+    "parent_id": 0
+  },
+  {
+    "category_id": "143",
+    "category_name": "ISLAMIC",
+    "parent_id": 0
+  },
+  {
+    "category_id": "145",
+    "category_name": "QURAN MAJEED",
+    "parent_id": 0
+  },
+  {
+    "category_id": "174",
+    "category_name": "WAHEED MURAD COLLECTION",
+    "parent_id": 0
+  },
+  {
+    "category_id": "210",
+    "category_name": "UMER SHARIF COLLECTION",
+    "parent_id": 0
+  },
+  {
+    "category_id": "208",
+    "category_name": "NADEEM COLLECTION",
+    "parent_id": 0
+  },
+  {
+    "category_id": "609",
+    "category_name": "TURKISH (2025)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "537",
+    "category_name": "TURKISH (2024)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "95",
+    "category_name": "TURKISH",
+    "parent_id": 0
+  },
+  {
+    "category_id": "96",
+    "category_name": "ENGLISH ARABIC SUBTITLES",
+    "parent_id": 0
+  },
+  {
+    "category_id": "146",
+    "category_name": "007 James Bond Coollection",
+    "parent_id": 0
+  },
+  {
+    "category_id": "153",
+    "category_name": "Fast And The Furious Collection",
+    "parent_id": 0
+  },
+  {
+    "category_id": "154",
+    "category_name": "The Jurassic Park Collection",
+    "parent_id": 0
+  },
+  {
+    "category_id": "152",
+    "category_name": "Indiana Jones The Complete Adventure",
+    "parent_id": 0
+  },
+  {
+    "category_id": "160",
+    "category_name": "The Harry Potter Collection",
+    "parent_id": 0
+  },
+  {
+    "category_id": "157",
+    "category_name": "Star Wars Collection",
+    "parent_id": 0
+  },
+  {
+    "category_id": "159",
+    "category_name": "GodFather Collection",
+    "parent_id": 0
+  },
+  {
+    "category_id": "158",
+    "category_name": "Denisel Washington Collection",
+    "parent_id": 0
+  },
+  {
+    "category_id": "97",
+    "category_name": "THE KAPIL SHARMA SHOW",
+    "parent_id": 0
+  },
+  {
+    "category_id": "134",
+    "category_name": "Indian Idol (2021)",
+    "parent_id": 0
+  },
+  {
+    "category_id": "94",
+    "category_name": "WWE",
+    "parent_id": 0
+  },
+  {
+    "category_id": "580",
+    "category_name": "AFRIKAANS",
+    "parent_id": 0
+  },
+  {
+    "category_id": "173",
+    "category_name": "MORGAN FREEMAN COLLECTION",
+    "parent_id": 0
+  },
+  {
+    "category_id": "228",
+    "category_name": "Bruce Lee Collection",
+    "parent_id": 0
+  },
+  {
+    "category_id": "222",
+    "category_name": "VAN DAMME COLLECTION",
+    "parent_id": 0
+  },
+  {
+    "category_id": "220",
+    "category_name": "Rocky Collection",
+    "parent_id": 0
+  },
+  {
+    "category_id": "219",
+    "category_name": "Alien Collection",
+    "parent_id": 0
+  },
+  {
+    "category_id": "218",
+    "category_name": "Predator Collection",
+    "parent_id": 0
+  },
+  {
+    "category_id": "217",
+    "category_name": "Die Hard Collection",
+    "parent_id": 0
+  },
+  {
+    "category_id": "216",
+    "category_name": "Terminator Collection",
+    "parent_id": 0
+  },
+  {
+    "category_id": "215",
+    "category_name": "Rambo Collection",
+    "parent_id": 0
+  },
+  {
+    "category_id": "348",
+    "category_name": "Short Film  StarzPlay",
+    "parent_id": 0
+  },
+  {
+    "category_id": "223",
+    "category_name": "MYANMAR",
+    "parent_id": 0
+  },
+  {
+    "category_id": "88",
+    "category_name": "ARABIC",
+    "parent_id": 0
+  },
+  {
+    "category_id": "424",
+    "category_name": "UFC FIGHT",
+    "parent_id": 0
+  }
+]
