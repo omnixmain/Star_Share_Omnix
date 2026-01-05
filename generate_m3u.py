@@ -30,15 +30,15 @@ def fetch_categories(action):
 def format_live_entry(stream, cat_map):
     # Live stream format
     try:
-        name = stream.get('name', 'Unknown')
-        stream_id = stream.get('stream_id', '')
-        icon = stream.get('stream_icon', '')
-        epg_id = stream.get('epg_channel_id', '')
+        name = stream.get('name', 'Unknown').strip()
+        stream_id = str(stream.get('stream_id', '')).strip()
+        icon = stream.get('stream_icon', '').strip()
+        epg_id = stream.get('epg_channel_id', '').strip()
         cat_id = stream.get('category_id', '')
-        group_title = cat_map.get(cat_id, 'Uncategorized')
+        group_title = cat_map.get(cat_id, 'Uncategorized').strip()
         
-        # Calculate URL
-        url = f"{BASE_URL}/{USERNAME}/{PASSWORD}/{stream_id}"
+        # Calculate URL (Standard Xtream Codes format: /live/username/password/stream_id.ts)
+        url = f"{BASE_URL}/live/{USERNAME}/{PASSWORD}/{stream_id}.ts"
         
         entry = f'#EXTINF:-1 tvg-id="{epg_id}" tvg-name="{name}" tvg-logo="{icon}" group-title="{group_title}",{name}\n{url}\n'
         return entry
@@ -48,12 +48,14 @@ def format_live_entry(stream, cat_map):
 def format_vod_entry(stream, cat_map):
     # Movie format
     try:
-        name = stream.get('name', 'Unknown')
-        stream_id = stream.get('stream_id', '')
-        icon = stream.get('stream_icon', '')
-        extension = stream.get('container_extension', 'mp4')
+        name = stream.get('name', 'Unknown').strip()
+        stream_id = str(stream.get('stream_id', '')).strip()
+        icon = stream.get('stream_icon', '').strip()
+        extension = stream.get('container_extension', 'mp4').strip()
+        if not extension: extension = 'mp4' # Fallback
+        
         cat_id = stream.get('category_id', '')
-        group_title = cat_map.get(cat_id, 'Uncategorized')
+        group_title = cat_map.get(cat_id, 'Uncategorized').strip()
         
         # Calculate URL for VOD
         url = f"{BASE_URL}/movie/{USERNAME}/{PASSWORD}/{stream_id}.{extension}"
@@ -66,12 +68,14 @@ def format_vod_entry(stream, cat_map):
 def format_series_entry(series, cat_map):
     # Series format
     try:
-        name = series.get('name', 'Unknown')
-        series_id = series.get('series_id', '')
-        icon = series.get('cover', '')
+        name = series.get('name', 'Unknown').strip()
+        series_id = str(series.get('series_id', '')).strip()
+        icon = series.get('cover', '').strip()
         cat_id = series.get('category_id', '')
-        group_title = cat_map.get(cat_id, 'Uncategorized')
+        group_title = cat_map.get(cat_id, 'Uncategorized').strip()
         
+        # Series don't have a single stream URL usually. 
+        # We stick to the series metadata path.
         url = f"{BASE_URL}/series/{USERNAME}/{PASSWORD}/{series_id}"
         
         entry = f'#EXTINF:-1 tvg-name="{name}" tvg-logo="{icon}" group-title="{group_title}",{name} (Series - Catalog Only)\n{url}\n'
