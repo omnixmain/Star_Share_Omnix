@@ -8,18 +8,30 @@ USERNAME = "P4B9TB9xR8"
 PASSWORD = "humongous2tonight"
 API_URL = f"{BASE_URL}/player_api.php"
 
+import time
+
 def get_m3u_header():
     return '#EXTM3U\n'
+
+def fetch_with_retry(url, retries=3, timeout=120):
+    for i in range(retries):
+        try:
+            response = requests.get(url, timeout=timeout, stream=True)
+            response.raise_for_status()
+            return response.json()
+        except (requests.exceptions.RequestException, ValueError) as e:
+            print(f"Attempt {i+1} failed: {e}")
+            if i < retries - 1:
+                time.sleep(5)  # Wait before retry
+            else:
+                raise
 
 def fetch_categories(action):
     url = f"{API_URL}?username={USERNAME}&password={PASSWORD}&action={action}"
     print(f"Fetching categories: {action}...")
     try:
-        response = requests.get(url, timeout=30)
-        response.raise_for_status()
-        data = response.json()
+        data = fetch_with_retry(url, retries=3, timeout=60)
         if isinstance(data, list):
-            # Create a dictionary mapping category_id to category_name
             cat_map = {item.get('category_id'): item.get('category_name') for item in data}
             print(f"Loaded {len(cat_map)} categories for {action}")
             return cat_map
@@ -88,18 +100,21 @@ def fetch_and_save(action, filename, mode, cat_map):
     print(f"Fetching content {action}...")
     
     try:
-        response = requests.get(url, timeout=60, stream=True)
-        response.raise_for_status()
-        data = response.json()
+        # Use retry logic for large content fetch
+        data = fetch_with_retry(url, retries=3, timeout=120)
         
         if not isinstance(data, list):
             print(f"Error: Expected list for {action} but got {type(data)}")
             return
 
-        print(f"Processing {len(data)} items for {filename}...")
+        count = len(data)
+        print(f"Processing {count} items for {filename}...")
         
         with open(filename, 'w', encoding='utf-8') as f:
+            # Add metadata to header for verification
             f.write(get_m3u_header())
+            f.write(f"# Total Items: {count}\n")
+            f.write(f"# Generated: {time.strftime('%Y-%m-%d %H:%M:%S')} UTC\n")
             
             for item in data:
                 entry = ""
@@ -113,7 +128,7 @@ def fetch_and_save(action, filename, mode, cat_map):
                 if entry:
                     f.write(entry)
         
-        print(f"Successfully saved {filename}")
+        print(f"Successfully saved {filename} with {count} entries.")
 
     except Exception as e:
         print(f"Failed to fetch or save {action}: {e}")
