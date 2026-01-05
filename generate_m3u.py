@@ -42,32 +42,44 @@ def fetch_categories(action):
 def format_live_entry(stream, cat_map):
     # Live stream format
     try:
-        name = stream.get('name', 'Unknown').strip()
+        name = str(stream.get('name', '') or 'Unknown').strip()
         stream_id = str(stream.get('stream_id', '')).strip()
-        icon = stream.get('stream_icon', '').strip()
-        epg_id = stream.get('epg_channel_id', '').strip()
-        cat_id = stream.get('category_id', '')
-        group_title = cat_map.get(cat_id, 'Uncategorized').strip()
+        icon = str(stream.get('stream_icon', '') or '').strip()
+        epg_id = str(stream.get('epg_channel_id', '') or '').strip()
+        
+        cat_id = stream.get('category_id')
+        # cat_id might be int or string, normalize to string if cat_map keys are strings
+        # But for safety, try lookup as is, then str
+        group_title = cat_map.get(cat_id)
+        if not group_title:
+             group_title = cat_map.get(str(cat_id), 'Uncategorized')
+        
+        group_title = str(group_title or 'Uncategorized').strip()
         
         # Calculate URL (Standard Xtream Codes format: /live/username/password/stream_id.ts)
         url = f"{BASE_URL}/live/{USERNAME}/{PASSWORD}/{stream_id}.ts"
         
         entry = f'#EXTINF:-1 tvg-id="{epg_id}" tvg-name="{name}" tvg-logo="{icon}" group-title="{group_title}",{name}\n{url}\n'
         return entry
-    except Exception:
+    except Exception as e:
+        # print(f"Error formatting live: {e}") # Uncomment for debug
         return ""
 
 def format_vod_entry(stream, cat_map):
     # Movie format
     try:
-        name = stream.get('name', 'Unknown').strip()
+        name = str(stream.get('name', '') or 'Unknown').strip()
         stream_id = str(stream.get('stream_id', '')).strip()
-        icon = stream.get('stream_icon', '').strip()
-        extension = stream.get('container_extension', 'mp4').strip()
-        if not extension: extension = 'mp4' # Fallback
+        icon = str(stream.get('stream_icon', '') or '').strip()
+        extension = str(stream.get('container_extension', '') or 'mp4').strip()
+        if not extension: extension = 'mp4' 
         
-        cat_id = stream.get('category_id', '')
-        group_title = cat_map.get(cat_id, 'Uncategorized').strip()
+        cat_id = stream.get('category_id')
+        group_title = cat_map.get(cat_id)
+        if not group_title:
+             group_title = cat_map.get(str(cat_id), 'Uncategorized')
+             
+        group_title = str(group_title or 'Uncategorized').strip()
         
         # Calculate URL for VOD
         url = f"{BASE_URL}/movie/{USERNAME}/{PASSWORD}/{stream_id}.{extension}"
@@ -80,11 +92,16 @@ def format_vod_entry(stream, cat_map):
 def format_series_entry(series, cat_map):
     # Series format
     try:
-        name = series.get('name', 'Unknown').strip()
+        name = str(series.get('name', '') or 'Unknown').strip()
         series_id = str(series.get('series_id', '')).strip()
-        icon = series.get('cover', '').strip()
-        cat_id = series.get('category_id', '')
-        group_title = cat_map.get(cat_id, 'Uncategorized').strip()
+        icon = str(series.get('cover', '') or '').strip()
+        
+        cat_id = series.get('category_id')
+        group_title = cat_map.get(cat_id)
+        if not group_title:
+             group_title = cat_map.get(str(cat_id), 'Uncategorized')
+             
+        group_title = str(group_title or 'Uncategorized').strip()
         
         # Series don't have a single stream URL usually. 
         # We stick to the series metadata path.
