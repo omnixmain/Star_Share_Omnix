@@ -99,7 +99,7 @@ def fetch_series_episodes(series, cat_map):
         info_url = f"{API_URL}?username={USERNAME}&password={PASSWORD}&action=get_series_info&series_id={series_id}"
         data = fetch_with_retry(info_url, retries=2, timeout=60)
         
-        if not data or 'episodes' not in data:
+        if not data or not isinstance(data, dict) or 'episodes' not in data:
             return ""
 
         episodes_map = data['episodes']
@@ -224,12 +224,12 @@ def fetch_and_save(action, filename, mode, cat_map):
 
 def main():
     # 1. LIVE TV
-    # live_cats = fetch_categories("get_live_categories")
-    # fetch_and_save("get_live_streams", "starshare_live.m3u", "live", live_cats)
+    live_cats = fetch_categories("get_live_categories")
+    fetch_and_save("get_live_streams", "starshare_live.m3u", "live", live_cats)
     
     # 2. MOVIES
-    # vod_cats = fetch_categories("get_vod_categories")
-    # fetch_and_save("get_vod_streams", "starshare_movies.m3u", "vod", vod_cats)
+    vod_cats = fetch_categories("get_vod_categories")
+    fetch_and_save("get_vod_streams", "starshare_movies.m3u", "vod", vod_cats)
     
     # 3. SERIES
     series_cats = fetch_categories("get_series_categories")
