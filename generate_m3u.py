@@ -232,8 +232,8 @@ def main():
     fetch_and_save("get_vod_streams", "starshare_movies.m3u", "vod", vod_cats)
     
     # 3. SERIES
-    series_cats = fetch_categories("get_series_categories")
-    fetch_and_save("get_series", "starshare_series.m3u", "series", series_cats)
+    # series_cats = fetch_categories("get_series_categories")
+    # fetch_and_save("get_series", "starshare_series.m3u", "series", series_cats)
 
 if __name__ == "__main__":
     main()
